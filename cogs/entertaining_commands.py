@@ -16,9 +16,9 @@ class Entertaining_Stuff(commands.Cog):
 	async def hello_world(self, context):
 		await context.send('==> hello world')
 
-	@commands.command()
-	async def rollDice(self, context, *, first_num, second_num):
-		await context.send(random.randint(first_num,second_num))
+	#@commands.command()
+	#async def rollDice(self, context, *, first_num, second_num):		<--- still in work
+	#	await context.send(random.randint(first_num,second_num))
 
 	@commands.command(aliases=['8ball'])
 	async def _8ball(self, context, *, question):
