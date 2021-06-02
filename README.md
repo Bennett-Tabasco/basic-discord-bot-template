@@ -5,4 +5,4 @@ if you're about to download my project, just download everything, make sure that
 
 
 
-if the bot sent duplicate messages or the command doesn't work after you commited changes even if your syntax is correct, just regenarate the token and run the bot with that new one.
+if the bot sent duplicate messages or the command doesn't work after you commited changes even if your syntax is correct, just regenarate the token and run the bot with that new token
