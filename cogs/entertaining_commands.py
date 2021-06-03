@@ -41,6 +41,6 @@ class Entertaining_Stuff(commands.Cog):
 		"Very doubtful."]
 		await context.send(f'Question: {question}\n Answer: {random.choice(responses)}')
 
-
+	# add more commands here since this file is pretty boring
 def setup(client):
 	client.add_cog(Entertaining_Stuff(client))
