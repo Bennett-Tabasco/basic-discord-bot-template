@@ -54,7 +54,7 @@ for filename in os.listdir('./cogs'):
 @client.command(aliases=['help', 'HELP'])
 async def Help(context):	
 	embed=discord.Embed(title="TestBot" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')", color=discord.Color.blue())
-	embed.add_field(name="Entertaining stuff.", value="Check out these commands if you bored.", inline=False)
+	embed.add_field(name="Entertaining stuff.", value="Check out these commands if you're bored.", inline=False)
 	embed.add_field(name="8ball", value="Ask this bot something and it will answer your question", inline=True)
 	embed.add_field(name="HelloWorld", value="Print out 'hello world'", inline=True)
 
