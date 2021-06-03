@@ -29,7 +29,7 @@ class Settings(commands.Cog):  # <-- time converter for tempban command
 	@commands.command()
 	@commands.has_permissions(manage_messages=True)
 	async def clear(self, context, amount=5): # <-- clear message command
-		await context.channel.purge(limit=amount)
+		await context.channel.purge(limit=amount+1) 
 		await context.send(f'Cleared {amount} message(s).')
 		await asyncio.sleep(3)
 		await context.channel.purge(limit=1)
