@@ -84,3 +84,8 @@ class Settings(commands.Cog):  # <-- time converter for tempban command
 
 def setup(client):
 	client.add_cog(Settings(client))
+
+'''
+about 'commands.has_permission()'
+check out more here: https://www.youtube.com/watch?v=imH1PCzCWP0
+'''
