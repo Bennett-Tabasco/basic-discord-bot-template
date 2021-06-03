@@ -9,5 +9,5 @@ if the bot sent duplicate messages or the command doesn't work after you commite
 
 
 update notes (4th june 2021 12:00 AM):
-- added kick, ban and tempban commands
+- added kick, ban, tempban and unban commands
 - permissions-only commands are now available
