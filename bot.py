@@ -3,6 +3,7 @@ import os
 import json
 from discord.ext import commands, tasks
 activity = discord.Game(name="with Tak.")
+# getting prefix on the current server
 def get_prefix(client, message):
 		with open('prefixes.json' ,'r') as f:
 			prefixes = json.load(f)
@@ -10,7 +11,7 @@ def get_prefix(client, message):
 		return prefixes[str(message.guild.id)]
 client = commands.Bot(command_prefix=get_prefix, activity=activity, status=discord.Status.idle)
 client.remove_command('help')
-
+# load and set prefix
 @client.event
 async def on_guild_join(guild):
 	with open('prefixes.json', 'r') as f:
@@ -30,7 +31,9 @@ async def on_guild_remove(guild):
 
 	with open('prefixes.json', 'w') as f:
 		json.dump(prefixes, f, indent=4)
+#--
 
+# load and unload cogs
 @client.command()
 async def load(context, extension):
 	client.load_extension(f'cogs.{extension}')
@@ -43,8 +46,9 @@ async def unload(context, extension):
 for filename in os.listdir('./cogs'):
 	if filename.endswith('.py'):
 		client.load_extension(f'cogs.{filename[:-3]}')
+#--
 
-
+# custom help command using embeds (check out more here https://python.plainenglish.io/send-an-embed-with-a-discord-bot-in-python-61d34c711046)
 @client.command(aliases=['help', 'HELP'])
 async def Help(context):	
 	embed=discord.Embed(title="TakAlt" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')", color=discord.Color.blue())
@@ -69,4 +73,4 @@ async def on_command_error(context, error):
 		await context.send("Missing required argument, try again.")
 
 
-client.run('')
+client.run('') # bot's token here (make sure that you don't show your token to anyone)
