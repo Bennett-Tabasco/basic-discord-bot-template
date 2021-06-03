@@ -6,3 +6,8 @@ if you're about to download my project, just download everything, make sure that
 
 
 if the bot sent duplicate messages or the command doesn't work after you commited changes even if your syntax is correct, just regenarate the token and run the bot with that new token
+
+
+update notes (4th june 2021 12:00 AM):
+- added kick, ban and tempban commands
+- permissions-only commands are now available
