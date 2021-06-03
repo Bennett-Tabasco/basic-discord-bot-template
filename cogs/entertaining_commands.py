@@ -14,7 +14,7 @@ class Entertaining_Stuff(commands.Cog):
 
 	@commands.command(aliases=['HelloWorld'])
 	async def hello_world(self, context):
-		await context.send('==> hello world')
+		await context.send('>>> hello world')
 
 	#@commands.command()
 	#async def rollDice(self, context, *, first_num, second_num):		<--- still in work
