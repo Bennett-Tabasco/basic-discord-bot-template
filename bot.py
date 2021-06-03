@@ -2,7 +2,7 @@ import discord
 import os
 import json
 from discord.ext import commands, tasks
-activity = discord.Game(name="with Tak.")
+activity = discord.Game(name="with TemplateBot.")
 # getting prefix on the current server
 def get_prefix(client, message):
 		with open('prefixes.json' ,'r') as f:
@@ -51,7 +51,7 @@ for filename in os.listdir('./cogs'):
 # custom help command using embeds (check out more here https://python.plainenglish.io/send-an-embed-with-a-discord-bot-in-python-61d34c711046)
 @client.command(aliases=['help', 'HELP'])
 async def Help(context):	
-	embed=discord.Embed(title="TakAlt" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')", color=discord.Color.blue())
+	embed=discord.Embed(title="TemplateBot" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')", color=discord.Color.blue())
 	embed.add_field(name="Entertaining stuff.", value="Check out these commands if you're bored.", inline=False)
 	embed.add_field(name="8ball", value="Ask this bot something and it will answer your question", inline=True)
 	embed.add_field(name="HelloWorld", value="Print out 'hello world'", inline=True)
@@ -60,6 +60,7 @@ async def Help(context):
 	embed.add_field(name="kick", value="Kick someone out of server (Administrator permission required).", inline=True)
 	embed.add_field(name="ban", value="Ban someone out of server (Administrator permission required).", inline=True)
 	embed.add_field(name="tempban", value="Temp ban someone out of server (Administrator permission required).", inline=True)
+	embed.add_field(name="unban", value="Used to unban someone (Administrator permission required).", inline=True)
 	embed.add_field(name="prefixSet", value="Set the old prefix to a new one.", inline=True)
 	embed.add_field(name="ping", value="Checking for ping.", inline=True)
 	embed.add_field(name="clear", value="Clear messages with a specific amount (Default is 5, Manage messages permission required).", inline=True)
