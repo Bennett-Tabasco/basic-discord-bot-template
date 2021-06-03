@@ -50,6 +50,20 @@ class Settings(commands.Cog):  # <-- time converter for tempban command
 		await context.send(f'{Member} has been temporarily banned for {amount}{unit}.')
 		await asyncio.sleep(amount * multiplier[unit])
 		await context.guild.unban(Member)
+		
+	@commands.command()
+	@commands.has_permissions(kick_members=True, ban_members=True)
+	async def unban(self, context, *, member):			# <-- unban command
+		banned_users = await context.guild.bans()
+		member_name, member_discriminator = member.split('@')
+
+		for ban_entry in banned_users:
+			user = ban_entry.username
+
+			if (user.name, user.discriminator) == (member_name, member_discriminator):
+				await context.guild.unban(user)
+				await context.send(f'{user.name}#{user.discriminator} has been unbanned.')
+				return
 	
 	@commands.command()
 	@commands.has_permissions(kick_members=True,ban_members=True)
