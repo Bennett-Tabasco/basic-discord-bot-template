@@ -69,4 +69,4 @@ async def on_command_error(context, error):
 		await context.send("Missing required argument, try again.")
 
 
-client.run('NzQyMjMyMjU1ODA3ODgxMjU3.XzDHpw.MIprC0gV_KdbED5T4Kp3ZDXatv8')
+client.run('')
