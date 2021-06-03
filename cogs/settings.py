@@ -88,4 +88,5 @@ def setup(client):
 '''
 about 'commands.has_permission()'
 check out more here: https://www.youtube.com/watch?v=imH1PCzCWP0
+permissions: https://discordpy.readthedocs.io/en/stable/api.html?highlight=permissions#discord.Permissions
 '''
