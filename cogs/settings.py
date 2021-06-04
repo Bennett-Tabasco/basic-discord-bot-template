@@ -33,7 +33,32 @@ class Settings(commands.Cog):  # <-- time converter for tempban command
 		await context.send(f'Cleared {amount} message(s).')
 		await asyncio.sleep(3)
 		await context.channel.purge(limit=1)
+	
+	@commands.command()
+	@commands.has_permissions(manage_messages=True)
+	async def mute(self, context, Member : commands.MemberConverter, *, reason=None):  # <-- mute command
+		guild = context.guild
+		mutedRole = discord.utils.get(guild.roles, name='Muted')
 
+		if not mutedRole:
+			mutedRole = await guild.create_role(name='Muted')
+
+			for channel in guild.channels:
+				await channel.set_permissions(mutedRole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
+
+		await Member.add_roles(mutedRole, reason=reason)
+		await context.send(f'Muted {Member}\nReason: {reason}')
+		await Member.send(f'You were muted in {guild.name}\nReason: {reason}')
+
+	@commands.command()
+	@commands.has_permissions(manage_messages=True)
+	async def unmute(self, context, Member : commands.MemberConverter):  # <--unmute command
+		mutedRole = discord.utils.get(context.guild.roles, name='Muted')
+
+		await Member.remove_roles(mutedRole)
+		await context.send(f'Unmuted {Member}')
+		await Member.send(f"You were unmuted in {guild.name}")
+		
 	@commands.command()
 	@commands.has_permissions(kick_members=True)
 	async def kick(self, context, Member : commands.MemberConverter, *, reason=None):  # <-- kick command
@@ -81,7 +106,69 @@ class Settings(commands.Cog):  # <-- time converter for tempban command
 
 		with open('prefixes.json', 'w') as f:
 			json.dump(prefixes, f, indent=4)
+	
+	# Error handling stuff
+	@kick.error
+	async def kick_error(self, context, error):
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send('Please specify a user to kick.')  # <-- this line will excute when users don't specify a user to kick
+		if isinstance(error, commands.MissingPermissions):
+			await context.send(f"You don't have permissions to run this command.") # <-- this line will execute when users don't have permission to access this command
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send(f"I don't have the required permission, please give me administrator permission in order to run this command.")  # <-- this line will execute when the users don't give permissions to this bot
+  	# the same thing goes to other commands
+	
+	@ban.error
+	async def ban_error(self, context, error):
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send('Please specify a user to ban.')
+		if isinstance(error, commands.MissingPermissions):
+			await context.send(f"You don't have permissions to run this command.")
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send(f"I don't have the required permission, please give me administrator permission in order to run this command.")
 
+	@unban.error
+	async def unban_error(self, context, error):
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send('Please specify a user to unban.')
+		if isinstance(error, commands.MissingPermissions):
+			await context.send(f"You don't have permissions to run this command.")
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send(f"I don't have the required permission, please give me administrator permission in order to run this command.")
+
+	@tempban.error
+	async def tempban_error(self, context, error):
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send('Please specify a user to tempban.')
+		if isinstance(error, commands.MissingPermissions):
+			await context.send(f"You don't have permissions to run this command.")
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send(f"I don't have the required permission, please give me administrator permission in order to run this command.")
+
+	@clear.error
+	async def clear_error(self, context, error):
+		if isinstance(error, commands.MissingPermissions):
+			await context.send("You don't have permissions to run this command.")
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send("I don't have the required permission, please give me administrator permission in order to run this command.")
+
+	@mute.error
+	async def clear_error(self, context, error):
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send('Please specify a user to mute.')
+		if isinstance(error, commands.MissingPermissions):
+			await context.send("You don't have permissions to run this command.")
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send("I don't have the required permission, please give me administrator permission in order to run this command.")
+
+	@unmute.error
+	async def clear_error(self, context, error):
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send('Please specify a user to unmute.')
+		if isinstance(error, commands.MissingPermissions):
+			await context.send("You don't have permissions to run this command.")
+		if isinstance(error, commands.BotMissingPermissions):
+			await context.send("I don't have the required permission, please give me administrator permission in order to run this command.")
 def setup(client):
 	client.add_cog(Settings(client))
 
