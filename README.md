@@ -11,6 +11,7 @@ if the bot sent duplicate messages or the command doesn't work after you commite
 upadate notes (4th june 2021 6:02PM):
 - added mute and unmute commands
 - error handlers are now available (check settings.py file)
+- fixed unban command
  
 update notes (4th june 2021 12:00 AM):
 - added kick, ban, tempban and unban commands
