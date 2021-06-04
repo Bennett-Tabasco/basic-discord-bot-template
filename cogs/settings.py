@@ -80,10 +80,10 @@ class Settings(commands.Cog):  # <-- time converter for tempban command
 	@commands.has_permissions(kick_members=True, ban_members=True)
 	async def unban(self, context, *, member):			# <-- unban command
 		banned_users = await context.guild.bans()
-		member_name, member_discriminator = member.split('@')
+		member_name, member_discriminator = member.split('#')
 
 		for ban_entry in banned_users:
-			user = ban_entry.username
+			user = ban_entry.user
 
 			if (user.name, user.discriminator) == (member_name, member_discriminator):
 				await context.guild.unban(user)
