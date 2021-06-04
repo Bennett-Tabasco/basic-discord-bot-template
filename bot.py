@@ -51,7 +51,7 @@ for filename in os.listdir('./cogs'):
 # custom help command using embeds (check out more here https://python.plainenglish.io/send-an-embed-with-a-discord-bot-in-python-61d34c711046)
 @client.command(aliases=['help', 'HELP'])
 async def Help(context):	
-	embed=discord.Embed(title="TakAlt" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')", color=discord.Color.blue())
+	embed=discord.Embed(title="TemplateBot" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')", color=discord.Color.blue())
 	embed.add_field(name="Entertaining stuff.", value="Check out these commands if you're bored.", inline=False)
 	embed.add_field(name="8ball", value="Ask this bot something and it will answer your question", inline=True)
 	embed.add_field(name="HelloWorld", value="Print out 'hello world'", inline=True)
