@@ -8,7 +8,7 @@ class Help(commands.Cog):
     # new help command using embeds (check out more in here https://python.plainenglish.io/send-an-embed-with-a-discord-bot-in-python-61d34c711046)
     @commands.command(aliases=['help', 'HELP'])
     async def Help(self, context):	
-	    embed=discord.Embed(title=":robot: TakAlt" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')")
+	    embed=discord.Embed(title=":robot: TemplateBot" ,description= f"A list of commands if you don't know the commands (Default prefix is '%')")
 	    embed.add_field(name="helpEntertain", value="Check out these commands if you're bored.", inline=False)
 	    embed.add_field(name="helpSettings", value="Used to setting some stuff.", inline=False)
 	    embed.add_field(name="helpSecurity", value="These commands are mostly for server's mods and admins.", inline=False)
