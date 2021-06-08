@@ -46,8 +46,8 @@ class Settings(commands.Cog):
 		if isinstance(error, commands.BotMissingPermissions):
 			await context.send("I don't have the required permission, please give me administrator permission in order to run this command.")
 
-	
-client.add_cog(Settings(client))
+def setup(client):
+	client.add_cog(Settings(client))
 
 '''
 about 'commands.has_permission()'
