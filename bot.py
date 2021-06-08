@@ -10,7 +10,7 @@ def get_prefix(client, message):
 
 		return prefixes[str(message.guild.id)]
 client = commands.Bot(command_prefix=get_prefix, activity=activity, status=discord.Status.idle)
-client.remove_command('help') # remove the current help command and replace it with a new one (check line 51)
+client.remove_command('help') # remove the current help command and replace it with a new one (check help_commands.py file)
 
 # load and set prefix
 @client.event
