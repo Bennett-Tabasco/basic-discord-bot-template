@@ -10,6 +10,7 @@ if the bot sent duplicate messages or the command doesn't work after you commite
 
 update notes (8th june 2021 9:16PM):
 - help commands has been moved to help_commands.py file
+- ban, tempban, unban, kick, mute and unmute commands has been moved to security.py file
 
 upadate notes (4th june 2021 6:02PM):
 - added mute and unmute commands
