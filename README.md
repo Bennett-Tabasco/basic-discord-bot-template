@@ -8,6 +8,9 @@ if you're about to download my project, just download everything, make sure that
 
 if the bot sent duplicate messages or the command doesn't work after you commited changes even if your syntax is correct, just regenarate the token and run the bot with that new token
 
+update notes (9th june 2021 7:20PM):
+- setting abnormal characters for the bot's prefix is not available anymore (more information: https://stackoverflow.com/questions/67888572/setting-valid-prefixes-for-the-discord-bot-in-discord-py/67891510#67891510), you can use the old version if you want (check settings.py)
+
 update notes (8th june 2021 9:16PM):
 - help commands has been moved to help_commands.py file
 - ban, tempban, unban, kick, mute and unmute commands has been moved to security.py file
