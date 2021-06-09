@@ -54,6 +54,7 @@ class Settings(commands.Cog):
 
 	#	with open('prefixes.json', 'w') as f:
 	#		json.dump(prefixes, f, indent=4)
+	#	await context.send(f'**Prefix set to** `{prefix}`')
 	
 	
 	@clear.error
