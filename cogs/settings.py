@@ -25,18 +25,35 @@ class Settings(commands.Cog):
 		await asyncio.sleep(3)
 		await context.channel.purge(limit=1)
 	
-	
-		 
-	@commands.command(aliases=['prefixSet', 'setPrefix'])
+	#new version
+	@commands.command(aliases=['prefixSet']) 
 	@commands.has_permissions(administrator=True)
-	async def change_prefix(self, context, prefix):  # <-- set prefix command
-		with open('prefixes.json', 'r') as f:
-			prefixes = json.load(f)
+	async def change_prefix(self, context, prefix):
+		valid_prefix = ['!', '@', '#', '$', '%', '^', '&', '*','-', '_', '+', '=', '~', '>', '<', '.', ',', '(', ')', '[', ']', '{', '}', '?', '\\', '`', '|', '/']
+		if prefix not in valid_prefix: #if they don't give a valid prefix, this list contains valid prefixes
+			await context.send('That is not a valid prefix!')
+			return #the bot won't change the prefix if it's invalid
+		if prefix in valid_prefix: #if they give a valid prefix
+			with open('prefixes.json', 'r') as f:
+				prefixes = json.load(f)
 
-		prefixes[str(context.guild.id)] = prefix
+			prefixes[str(context.guild.id)] = prefix
 
-		with open('prefixes.json', 'w') as f:
-			json.dump(prefixes, f, indent=4)
+			with open('prefixes.json', 'w') as f:
+				json.dump(prefixes, f, indent=4)
+			await context.send(f'**Prefix changed to** `{prefix}`')
+	
+	#old version
+	#@commands.command(aliases=['prefixSet', 'setPrefix'])
+	#@commands.has_permissions(administrator=True)
+	#async def change_prefix(self, context, prefix):  # <-- set prefix command
+	#	with open('prefixes.json', 'r') as f:
+	#		prefixes = json.load(f)
+
+	#	prefixes[str(context.guild.id)] = prefix
+
+	#	with open('prefixes.json', 'w') as f:
+	#		json.dump(prefixes, f, indent=4)
 	
 	
 	@clear.error
