@@ -30,7 +30,7 @@ class Settings(commands.Cog):
 	@commands.has_permissions(administrator=True)
 	async def change_prefix(self, context, prefix):
 		valid_prefix = ['!', '@', '#', '$', '%', '^', '&', '*','-', '_', '+', '=', '~', '>', '<', '.', ',', '(', ')', '[', ']', '{', '}', '?', '\\', '`', '|', '/']
-		if prefix not in valid_prefix: #if they don't give a valid prefix, this list contains valid prefixes
+		if prefix not in valid_prefix: #if they don't give a valid prefix, also the list above contains valid prefixes
 			await context.send('That is not a valid prefix!')
 			return #the bot won't change the prefix if it's invalid
 		if prefix in valid_prefix: #if they give a valid prefix
