@@ -10,6 +10,11 @@ if the bot sent duplicate messages or the command doesn't work after you commite
 
 # features
 Bot's features:
+- Settings:
++ change prefix command (syntax: `<prefix>prefixSet <new prefix>`)
++ ping command (syntax: `<prefix>ping`) [shows bot's latency]
++ clear command (syntax: `<prefix>clear <amount>`) [default amount is 5, also amount of delete message can't be greater than 150]
+
 - Security:
 You can specify a member by getting his/her id or ping them.
 + ban command (syntax: `<prefix>ban <member> <reason>`)
@@ -19,6 +24,9 @@ You can specify a member by getting his/her id or ping them.
 + mute command (syntax: `<prefix>mute <member> <reason>`)
 + unmute command (syntax: `<prefix>unmute <member>`)
  
+- Voice:
++ coming soon!
+
 # updates
 update notes (9th june 2021 7:20PM):
 - setting abnormal characters for the bot's prefix is not available anymore (more information: https://stackoverflow.com/questions/67888572/setting-valid-prefixes-for-the-discord-bot-in-discord-py/67891510#67891510), you can use the old version if you want (check settings.py)
