@@ -10,25 +10,30 @@ if the bot sent duplicate messages or the command doesn't work after you commite
 
 # features
 Bot's features:
-- Settings:
- change prefix command (syntax: `<prefix>prefixSet <new prefix>`)
- ping command (syntax: `<prefix>ping`) [shows bot's latency]
- clear command (syntax: `<prefix>clear <amount>`) [default amount is 5, also amount of delete message can't be greater than 150]
-
-- Security:
-You can specify a member by getting his/her id or ping them.
- ban command (syntax: `<prefix>ban <member> <reason>`)
- kick command (syntax: `<prefix>kick <member> <reason>`)
- unban command (syntax: `<prefix>unban <member>`)
- tempban command (syntax: `<prefix>tempban <member> <duration (valid units: 's': seconds, 'm': minutes, 'h': hours)>`)
- mute command (syntax: `<prefix>mute <member> <reason>`)
- unmute command (syntax: `<prefix>unmute <member>`)
+<br/>
+<br/>
+ Settings:
+ + change prefix command (syntax: `<prefix>prefixSet <new prefix>`)
+ + ping command (syntax: `<prefix>ping`) [shows bot's latency]
+ + clear command (syntax: `<prefix>clear <amount>`) [default amount is 5, also amount of delete message can't be greater than 150]
  
-- Voice:
+ Security:
+ <br/>
+ <br/>
+You can specify a member by getting his/her id or ping them.
++ ban command (syntax: `<prefix>ban <member> <reason>`)
++ kick command (syntax: `<prefix>kick <member> <reason>`)
++ unban command (syntax: `<prefix>unban <member>`)
++ tempban command (syntax: `<prefix>tempban <member> <duration (valid units: 's': seconds, 'm': minutes, 'h': hours)>`)
++ mute command (syntax: `<prefix>mute <member> <reason>`)
++ unmute command (syntax: `<prefix>unmute <member>`)
+ 
+ Voice:
+ 
 + coming soon!
 
-- Side features:
-Error handlers
+Side features:
++ Error handlers
 
 
 # updates
