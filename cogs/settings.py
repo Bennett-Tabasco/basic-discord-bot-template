@@ -63,6 +63,13 @@ class Settings(commands.Cog):
 			await context.send("You don't have permissions to run this command.")
 		if isinstance(error, commands.BotMissingPermissions):
 			await context.send("I don't have the required permission, please give me administrator permission in order to run this command.")
+			
+	@change_prefix.error
+	async def change_prefix_error(self, context, error):
+		if isinstance(error, commands.MissingPermissions):
+			await context.send("You don't have permissions to run this command.")
+		if isinstance(error, commands.MissingRequiredArgument):
+			await context.send("Please specify a character for a new prefix.")
 
 def setup(client):
 	client.add_cog(Settings(client))
