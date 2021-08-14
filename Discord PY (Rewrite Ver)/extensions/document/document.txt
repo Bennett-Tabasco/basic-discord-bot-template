@@ -1,0 +1,68 @@
+Based on the old version, this is the rewritten version of the template for the basic discord.py bot
+, you can modify stuff on your own for personal (or commercial) using purposes.
+
+# Overview
+
+Because this is a rewritten version of the old version, 
+it will inherit all of the features and undetected bugs/issues from the old version.
+Most of them have been detected and fixed, somes are not.
+
+Some of the old features have been improved for a better experience to work with the bot development process
+or for better user experiences.
+
+# Features
+
+1. Improved the structure of how the server's prefixes should be stored. This improvement was meant
+for better readability.
+
+Example:
+
+Old structure:
+{
+    "server's id (string)": "server's prefix",
+    "server's id (string)": "server's prefix"
+}
+
+New structure:
+{
+    "guilds": {
+        "server's name": {
+            "id": server's id (integer)
+            "prefix": "server's prefix"
+        },
+
+        "server's name": {
+            "id": server's id (integer)
+            "prefix": "server's prefix"
+        }
+    }
+}
+
+2. The bot will also load all of the server's informations and write them to a JSON file
+that it's currently in if it hasn't possess those informations yet.
+
+3. Music commands are now available on this version.
+
+4. This version uses a .env via enviroment variables file to store client's token.
+This will be more secure than pasting it directly to the bot.py file
+
+5. Background task is now available, the bot will change its activity and status every specified amount of time
+; however, you can modify it as you like.
+
+# Installation and setup
+
+## For the source code:
+Click the green "code" button to download to source code
+After that, extract the ZIP folder
+
+Now that you have downloaded the code; next, download the python packages needed to run this bot
+go to this file path: "extensions/packages/requirements.txt"; it will show you all of the required
+packages to run this bot.
+
+After you followed the instruction and downloaded all of the required packages,
+follow this file path: "extensions/client-data/.env"; then paste your bot's token to the "TOKEN" variable.
+
+You can now run the bot.py file.
+
+
+
