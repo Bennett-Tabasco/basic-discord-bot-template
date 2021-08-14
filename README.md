@@ -1,3 +1,5 @@
+# THIS VERSION IS OBSOLETE, PLEASE CONSIDER USING THE NEW VERSION INSTEAD
+
 # basic-discord-bot-template
 This is just a template for a discord bot scripted in discord.py, feel free to make changes on your own.
 
