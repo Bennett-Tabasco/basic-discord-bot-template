@@ -1,4 +1,4 @@
-# This version is obsolete, please consider using the new version instead!
+# This version is obsolete, please consider using the [new version](https://github.com/Bennett-Tabasco/basic-discord-bot-template/tree/rewrite-branch) instead!
 
 # basic-discord-bot-template
 This is just a template for a discord bot scripted in discord.py, feel free to make changes on your own.
