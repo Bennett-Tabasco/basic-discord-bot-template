@@ -21,3 +21,7 @@ For full documentation, please check `extensions/document/document.txt`
 ### Currently, there are no bugs or issues occured yet.
 <br>
 
+# Update log
+- August 15 2021 - 11:21AM:
+    - Fixed bugs on music.py 
+
