@@ -12,7 +12,7 @@ jsonPath = "./extensions/client-data/prefixes.json"
 
 load_dotenv(dotenv_path=tokenPath)
 
-# Activity and Status
+# Activity and Status (you can either delete or add more status if you wanted)
 activity = cycle(["with TemplateBot!", "Python 3.9.5", ".help", "Hello, World!"])
 status = cycle([discord.Status.idle, discord.Status.online, discord.Status.do_not_disturb, discord.Status.online])
 # Changing the status every specified amount of time
@@ -54,6 +54,45 @@ async def changeActivity():
 
 
 #-- 
+
+@client.event
+async def on_guild_update(before, after):
+
+	# If the guild's update was not related to its name then just exit this function
+	if before.name == after.name:
+		return
+
+
+	with open(jsonPath, 'r') as database:
+		data = json.load(database)
+
+	# Get the old prefix	
+	prefix = data["guilds"][before.name]["prefix"]
+
+	"""
+	Preview
+	
+	{
+		"guilds": {
+			"new name": {
+				"id": old id (integer)
+				"prefix": old prefix (string)
+			}
+		}
+	}
+	"""
+	
+	data["guilds"][after.name] = {}
+	data["guilds"][after.name]["id"] = before.id
+	data["guilds"][after.name]["prefix"] = prefix
+
+	# Delete the old guild's data
+	data["guilds"].pop(before.name)
+
+	with open(jsonPath, "w") as database:
+		json.dump(data, database, indent=4)
+
+		
 @client.event
 async def on_guild_join(guild):
 	with open(jsonPath, 'r') as f:
