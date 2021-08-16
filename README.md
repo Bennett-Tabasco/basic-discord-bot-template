@@ -39,7 +39,7 @@ Side features:
 
 
 # updates
-update notes (9th june 2021 7:20PM):
+last update notes (9th june 2021 7:20PM):
 - setting abnormal characters for the bot's prefix is not available anymore (more information: https://stackoverflow.com/questions/67888572/setting-valid-prefixes-for-the-discord-bot-in-discord-py/67891510#67891510), you can use the old version if you want (check settings.py)
 
 update notes (8th june 2021 9:16PM):
