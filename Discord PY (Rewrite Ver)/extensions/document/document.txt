@@ -62,7 +62,7 @@ packages to run this bot.
 After you followed the instruction and downloaded all of the required packages,
 follow this file path: "extensions/client-data/.env"; then paste your bot's token to the "TOKEN" variable.
 
-You can now run the bot.py file.
+Set your path to the bot.py file and then run it.
 
 
 
