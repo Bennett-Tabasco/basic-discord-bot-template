@@ -22,6 +22,9 @@ For full documentation, please check `extensions/document/document.txt`
 <br>
 
 # Update log
-- August 15 2021 - 11:21AM:
+- August 16th 2021 - 1:48PM:
+    - Added a feature which update the name of the guild in the JSON file if a server's name has been changed (check line 58, file: bot.py)   
+
+- August 15th 2021 - 11:21AM:
     - Fixed bugs on music.py 
 
