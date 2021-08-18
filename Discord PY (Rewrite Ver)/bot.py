@@ -38,7 +38,7 @@ async def on_ready():
 		joinedGuilds = json.load(database)
 
 		for guild in client.guilds:
-			if not guild.id in joinedGuilds["guilds"]:
+			if not str(guild.id) in joinedGuilds["guilds"]:
 				joinedGuilds["guilds"][str(guild.id)] = {}
 
 				joinedGuilds["guilds"][str(guild.id)]["name"] = guild.name
