@@ -7,7 +7,7 @@ from discord.ext import commands
 # Path to JSON file
 jsonPath = f"{os.getcwd()}\\extensions\\client-data\\prefixes.json"
 
-class Settings(commands.Cog): 
+class Configuration(commands.Cog): 
 	def __init__(self, client):
 		self.client = client
 
@@ -68,5 +68,5 @@ class Settings(commands.Cog):
 			await ctx.send("Please specify a character for a new prefix.")
 
 def setup(client):
-	client.add_cog(Settings(client))
+	client.add_cog(Configuration(client))
 
