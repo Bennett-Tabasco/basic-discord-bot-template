@@ -23,7 +23,7 @@ def get_prefix(client, message):
 	with open(jsonPath ,'r') as f:
 		prefixes = json.load(f)
 
-	return prefixes["guilds"][message.guild.name]["prefix"]
+	return prefixes["guilds"][str(message.guild.id)]["prefix"]
 
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help') 
@@ -33,16 +33,16 @@ async def on_ready():
 	changeActivity.start()
 	print("\nClient's status:\n\nBot is ready.")
 
-	#-- Load all server's info that the client is in, write it to the json file if the client possesses none of it
+	#-- Load all server's info that the client is in, write it to the json file if the client possessed none of it
 	with open(jsonPath, 'r') as database:
 		joinedGuilds = json.load(database)
 
 		for guild in client.guilds:
-			if not guild.name in joinedGuilds["guilds"]:
-				joinedGuilds["guilds"][guild.name] = {}
+			if not guild.id in joinedGuilds["guilds"]:
+				joinedGuilds["guilds"][str(guild.id)] = {}
 
-				joinedGuilds["guilds"][guild.name]["id"] = guild.id
-				joinedGuilds["guilds"][guild.name]["prefix"] = "."
+				joinedGuilds["guilds"][str(guild.id)]["name"] = guild.name
+				joinedGuilds["guilds"][str(guild.id)]["prefix"] = "."
 
 				with open(jsonPath, 'w') as database:
 					json.dump(joinedGuilds, database, indent=4)
@@ -67,41 +67,39 @@ async def on_guild_update(before, after):
 		data = json.load(database)
 
 	# Get the old prefix	
-	prefix = data["guilds"][before.name]["prefix"]
+	prefix = data["guilds"][str(before.id)]["prefix"]
 
 	"""
-	Preview
-	
 	{
 		"guilds": {
-			"new name": {
-				"id": old id (integer)
+			"id": {
+				"new name": new name (string)
 				"prefix": old prefix (string)
 			}
 		}
 	}
 	"""
 	
-	data["guilds"][after.name] = {}
-	data["guilds"][after.name]["id"] = before.id
-	data["guilds"][after.name]["prefix"] = prefix
+	data["guilds"].pop(str(before.id))
 
-	# Delete the old guild's data
-	data["guilds"].pop(before.name)
+	data["guilds"][str(after.id)] = {}
+	data["guilds"][str(after.id)]["name"] = after.name
+	data["guilds"][str(after.id)]["prefix"] = prefix
+
+
 
 	with open(jsonPath, "w") as database:
 		json.dump(data, database, indent=4)
 
-		
 @client.event
 async def on_guild_join(guild):
 	with open(jsonPath, 'r') as f:
 		prefixes = json.load(f)
 
-	prefixes["guilds"][guild.name] = {}
+	prefixes["guilds"][str(guild.id)] = {}
 
-	prefixes["guilds"][guild.name]["id"] = guild.id
-	prefixes["guilds"][guild.name]["prefix"] = "."
+	prefixes["guilds"][str(guild.id)]["name"] = guild.name
+	prefixes["guilds"][str(guild.id)]["prefix"] = "."
 
 	with open(jsonPath, 'w') as f:
 		json.dump(prefixes, f, indent=4)
@@ -111,7 +109,7 @@ async def on_guild_remove(guild):
 	with open(jsonPath, 'r') as f:
 		prefixes = json.load(f)
 
-	prefixes["guilds"].pop(guild.name)
+	prefixes["guilds"].pop(str(guild.id))
 
 	with open(jsonPath, 'w') as f:
 		json.dump(prefixes, f, indent=4)
