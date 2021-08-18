@@ -45,9 +45,9 @@ class Settings(commands.Cog):
 			with open(jsonPath, 'r') as f:
 				prefixes = json.load(f)
 
-			prefixes["guilds"][ctx.guild.name] = {}
-			prefixes["guilds"][ctx.guild.name]["id"] = ctx.guild.id
-			prefixes["guilds"][ctx.guild.name]["prefix"] = prefix
+			prefixes["guilds"][str(ctx.guild.id)] = {}
+			prefixes["guilds"][str(ctx.guild.id)]["name"] = ctx.guild.name
+			prefixes["guilds"][str(ctx.guild.id)]["prefix"] = prefix
 
 			with open(jsonPath, 'w') as f:
 				json.dump(prefixes, f, indent=4)
