@@ -18,7 +18,7 @@ For full documentation, please check `extensions/document/document.txt`
 
 * [FFmpeg](https://www.ffmpeg.org/download.html#build-windows) (software)
 # Bugs & Issues
-- Duplicate guilds name can't be store in a JSON file (status: under reconstructing)
+- Duplicate guilds name can't be store in a JSON file (status: Fixed)
 <br>
 
 # Update log
