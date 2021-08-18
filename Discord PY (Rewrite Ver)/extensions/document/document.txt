@@ -23,7 +23,7 @@ Old structure:
     "server's id (string)": "server's prefix"
 }
 
-New structure:
+New structure (not available anymore):
 {
     "guilds": {
         "server's name": {
@@ -34,6 +34,21 @@ New structure:
         "server's name": {
             "id": server's id (integer)
             "prefix": "server's prefix"
+        }
+    }
+}
+
+New structure (revamped):
+{
+    "guilds": {
+        "server's id": {
+            "name": server's name (string)
+            "prefix": "server's prefix" (string)
+        },
+
+        "server's id": {
+            "name": server's name (string)
+            "prefix": "server's prefix" (string)
         }
     }
 }
