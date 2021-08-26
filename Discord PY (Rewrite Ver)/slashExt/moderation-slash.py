@@ -10,6 +10,8 @@ class Moderation_Slash(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print("Moderation-Slash is ready.")
+        
+    # I'm lazy :P
 
 def setup(client):
     client.add_cog(Moderation_Slash(client))
