@@ -66,14 +66,16 @@ This will be more secure than pasting it directly to the bot.py file
 
 # Installation and setup
 
-## For the source code:
+## Source code:
 Click the green "code" button to download to source code
 After that, extract the ZIP folder
 
+## Packages
 Now that you have downloaded the code; next, download the python packages needed to run this bot
 go to this file path: "extensions/packages/requirements.txt"; it will show you all of the required
 packages to run this bot.
 
+## Setup
 After you followed the instruction and downloaded all of the required packages,
 follow this file path: "extensions/client-data/.env"; then paste your bot's token to the "TOKEN" variable.
 
