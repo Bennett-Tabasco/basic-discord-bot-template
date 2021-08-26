@@ -12,5 +12,5 @@ discord.py==1.7.3
 
 # You will also need to download FFmpeg in order for the bot to download and play music (https://www.youtube.com/watch?v=3z9rUl9r2oA&t=63s).
 
-# Python 3.6 or above 3.6 are recommended to run this bot
+# Python 3.7 or above 3.7 are recommended to run this bot
 
