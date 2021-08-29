@@ -12,10 +12,10 @@ jsonPath = "./extensions/client-data/prefixes.json"
 
 load_dotenv(dotenv_path=tokenPath)
 
-# Activity and Status (you can either delete or add more status if you wanted)
+# Activity and Status (you can either delete or add more status if you want)
 activity = cycle(["with TemplateBot!", "Python 3.9.5", ".help", "Hello, World!"])
 status = cycle([discord.Status.idle, discord.Status.online, discord.Status.do_not_disturb, discord.Status.online])
-# Changing the status every specified amount of time
+# Changing the status every specific amount of time
 time = 10
 
 
@@ -68,12 +68,15 @@ async def on_guild_update(before, after):
 
 	# Get the old prefix	
 	prefix = data["guilds"][str(before.id)]["prefix"]
-
+	
+	
 	"""
+	The structure:
+	
 	{
 		"guilds": {
 			"id": {
-				"new name": new name (string)
+				"new name": new name (string),
 				"prefix": old prefix (string)
 			}
 		}
@@ -81,7 +84,7 @@ async def on_guild_update(before, after):
 	"""
 	
 	data["guilds"].pop(str(before.id))
-
+	
 	data["guilds"][str(after.id)] = {}
 	data["guilds"][str(after.id)]["name"] = after.name
 	data["guilds"][str(after.id)]["prefix"] = prefix
