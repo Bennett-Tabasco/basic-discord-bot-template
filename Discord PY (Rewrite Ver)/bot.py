@@ -75,7 +75,7 @@ async def on_guild_update(before, after):
 	
 	{
 		"guilds": {
-			"id": {
+			guild's id (string): {
 				"new name": new name (string),
 				"prefix": old prefix (string)
 			}
