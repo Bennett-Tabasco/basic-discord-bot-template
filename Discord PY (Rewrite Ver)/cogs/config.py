@@ -23,7 +23,7 @@ class Configuration(commands.Cog):
 	
 	@commands.command()
 	@commands.has_permissions(manage_messages=True)
-	async def clear(self, ctx, amount=5): # <-- clear message command
+	async def clear(self, ctx, amount=5):
 		if amount > 150:
 			await ctx.send("Amount of messages to delete must be smaller than 150")
 			return
@@ -37,7 +37,7 @@ class Configuration(commands.Cog):
 	@commands.command(aliases=['prefixSet']) 
 	@commands.has_permissions(administrator=True)
 	async def change_prefix(self, ctx, prefix):
-		valid_prefix = ['!', '@', '#', '$', '%', '^', '&', '*','-', '_', '+', '=', '~', '>', '<', '.', ',', '?', '\\', '`', '|', '/']
+		valid_prefix = ['!', '@', '#', '$', '%', '^', '&', '*','-', '_', '+', '=', '~', '>', '<', '.', ',', '?', '\\', '`', '|', '/'] # allowed character for the new prefix
 		if prefix not in valid_prefix:
 			await ctx.send('That is not a valid prefix!')
 			return
@@ -53,6 +53,7 @@ class Configuration(commands.Cog):
 				json.dump(prefixes, f, indent=4)
 			await ctx.send(f'**Prefix changed to** `{prefix}`')
 	
+	# Error Handlers
 	@clear.error
 	async def clear_error(self, ctx, error):
 		if isinstance(error, commands.MissingPermissions):
