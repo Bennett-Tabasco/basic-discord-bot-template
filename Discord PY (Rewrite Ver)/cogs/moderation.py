@@ -95,7 +95,8 @@ class Security(commands.Cog):
 				return
 		else:
 			await ctx.send("Member not found.")		
-
+	
+	# Error Handlers
 	@commands.command()
 	@commands.has_permissions(kick_members=True,ban_members=True)
 	async def ban(self, ctx, Member : commands.MemberConverter, *, reason=None):
