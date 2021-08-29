@@ -61,7 +61,7 @@ that it's currently in if it hasn't possess those informations yet.
 4. This version uses a .env via enviroment variables file to store client's token.
 This will be more secure than pasting it directly to the bot.py file
 
-5. Background task is now available, the bot will change its activity and status every specified amount of time
+5. Background task is now available, the bot will change its activity and status every specific amount of time
 ; however, you can modify it as you like.
 
 # Installation and setup
