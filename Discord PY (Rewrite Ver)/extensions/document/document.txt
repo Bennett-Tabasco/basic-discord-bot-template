@@ -10,7 +10,7 @@ Most of them have been detected and fixed, somes are not.
 Some of the old features have been improved for a better experience to work with the bot development process
 or for better user experiences.
 
-# Features
+# Features (in no particular order)
 
 1. Improved the structure of how the server's prefixes should be stored. This improvement was meant
 for better readability.
