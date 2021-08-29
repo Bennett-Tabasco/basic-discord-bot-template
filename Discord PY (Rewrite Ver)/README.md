@@ -21,6 +21,17 @@ For full documentation, please check `extensions/document/document.txt`
 - Duplicate guilds name can't be store in a JSON file (status: Fixed)
 <br>
 
+# Useful Resources
+- [Official discord.py documentation](https://discordpy.readthedocs.io/en/latest/index.html)
+
+- Youtube resources:
+    - [Lucas](https://www.youtube.com/channel/UCR-zOCvDCayyYy1flR5qaAg) (He makes videos about how to create a simple discord bot, very easy to understand for beginners.)
+    - [Max A](https://www.youtube.com/watch?v=jHZlvRr9KxM) (Music bot)
+    - [DEVSPOT](https://www.youtube.com/watch?v=ygc-HdZHO5A&t=342s) (Slash commands tutorial)
+    
+- Stack Overflow resources:
+    - https://stackoverflow.com/questions/49331096/why-does-on-message-stop-commands-from-working
+
 # Update log
 - August 16th 2021 - 1:48PM (Last Update):
     - Added a feature which update the name of the guild in the JSON file if a its name has been changed (check line 58, file: bot.py)   
