@@ -38,15 +38,17 @@ class Config_Slash(commands.Cog):
         await ctx.send(f"Deleted {amount} message(s).")
 
     @cog_ext.cog_slash(
-        name="prefixSet",
-        description="Set new custom server's prefix.",
-        guild_ids=get_guilds_id(),
-        options=create_option(
-            name="prefix",
-            description='New custom prefix.',
-            required=True,
-            option_type=3
-        )
+        name = "prefixSet",
+        description = "Set new custom server's prefix.",
+        guild_ids = get_guilds_id(),
+        options = [
+		create_option (
+		    name="prefix",
+		    description='New custom prefix.',
+		    required=True,
+		    option_type=3
+        	)
+	]
     )
     async def prefixSet(self, ctx: SlashContext, prefix):
         valid_prefix = ['!', '@', '#', '$', '%', '^', '&', '*','-', '_', '+', '=', '~', '>', '<', '.', ',', '?', '\\', '`', '|', '/']
